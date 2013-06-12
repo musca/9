@@ -13,16 +13,16 @@ o(window).addListener('load', function() {
         v = digitalRoot(y);
     if (y > 0) {
       o('#result').html(' = ' + y);
-      o('#a').html(v.subSum +'='+ v.result);
+      o('#a').html(v.subSum +'= <span class="r">'+ v.result +'</span>');
       if (y == 9) {
         o('#a').html('');
       }
       if (v.result >= 18) {
         var b = digitalRoot(v.result);
-        o('#b').html(b.subSum +'='+ b.result);
+        o('#b').html(b.subSum +'= <span class="r">'+ b.result +'</span>');
         if (b.result >= 18) {
           var c =  digitalRoot(b.result);
-           o('#c').html(c.subSum +'='+ c.result);
+           o('#c').html(c.subSum +'= <span class="r">'+ c.result +'</span>');
         } else {
           o('#c').html('');
         }
