@@ -5,14 +5,15 @@
  */
 
 var o = $
-o(window).addListener('load', function() {
-  o("input").on('keyup', function() {
-    var x = o('#x').val(), 
+o.domReady(function() {
+  o("#x").focus();
+  o("#x").on('keyup', function() {
+    var x = o('#x').html(), 
         nine = new BigNumber(9), 
         y = nine.multiply(x), 
         v = digitalRoot(y);
     if (y > 0) {
-      o('#result').html(' = ' + y);
+      o('#result').html('<span class="r">'+ y +'</span>');
       o('#a').html(v.subSum +'= <span class="r">'+ v.result +'</span>');
       if (y == 9) {
         o('#a').html('');
@@ -22,7 +23,7 @@ o(window).addListener('load', function() {
         o('#b').html(b.subSum +'= <span class="r">'+ b.result +'</span>');
         if (b.result >= 18) {
           var c =  digitalRoot(b.result);
-           o('#c').html(c.subSum +'= <span class="r">'+ c.result +'</span>');
+          o('#c').html(c.subSum +'= <span class="r">'+ c.result +'</span>');
         } else {
           o('#c').html('');
         }
@@ -36,9 +37,9 @@ o(window).addListener('load', function() {
 });
 
 function digitalRoot(X) {
-  var x = new String(X), r = { subSum: "", result: 0 }
+  var x = new String(X), r = { subSum: '', result: 0 }
   for (var i = 0;  i < x.length; i++) {
-    if (x[i] !== ".") {
+    if (x[i] !== '.') {
       r.result += +x[i];
       r.subSum += x[i] + '+'
     }         

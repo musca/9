@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <title>9 times x = 9?</title>
     <style>
-      body{font-family:Helvetica Neue,Helvetica,arial,san-serif;text-align:center;word-wrap:break-word;margin:0 10%;}
-      span, input{font-size: 1.6em;line-height: 2.1em;}
-      input{margin:0 3px 0 9px;}
+      *{font-weight: 200;letter-spacing: 1px;}
+      body{font-family:'Helvetica Neue',Helvetica,arial,san-serif;text-align:center;word-wrap:break-word;margin:0 10%;}
+      span{font-size:27px;}
+      #x{border-bottom: 1px dotted #333;padding: 0 4px;}
+      #x:focus{ outline: none;}
+      .r{font-size: 27px;line-height: 45px;font-weight:bold;}
+      input{margin:0 9px 0 3px;}
       .bold{font-weight: bold;}
     </style>
     <script src="js/dep.min.js">//dependencies</script> 
@@ -15,7 +19,8 @@
   <body>
     <h1>9 &#215; X = 9?</h1>
     <span>9 &#215;</span>
-    <input id="x" type="text" placeholder="enter any number" maxlength="" size="15" value="">
+    <span id="x" contenteditable="true"></span> =
+    <!-- <input id="x" type="text" placeholder="enter any number" maxlength="" size="27" value=""> -->
     <span id="result"></span>
     <br>
     <span id="a"></span>
