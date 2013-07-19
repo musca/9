@@ -12,12 +12,10 @@ o.domReady(function() {
         nine = new BigNumber(9), 
         y = nine.multiply(x), 
         v = digitalRoot(y);
-    if (y > 0) {
+    if (y > 0 && v.subSum != 9) {
+      console.log(v.subSum, v.result)
       o('#result').html('= <span class="r">'+ y +'</span>');
       o('#a').html(v.subSum +' = <span class="r">'+ v.result +'</span>');
-      if (y == 9) {
-        o('#a').html('');
-      }
       if (v.result >= 18) {
         var b = digitalRoot(v.result);
         o('#b').html(b.subSum +' = <span class="r">'+ b.result +'</span>');
