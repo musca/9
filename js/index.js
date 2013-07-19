@@ -12,25 +12,32 @@ o.domReady(function() {
         nine = new BigNumber(9), 
         y = nine.multiply(x), 
         v = digitalRoot(y);
-    if (y > 0 && v.subSum != 9) {
-      console.log(v.subSum, v.result)
+
+    if (+y) {
       o('#result').html('= <span class="r">'+ y +'</span>');
+    } else {
+      o('#result').html('');
+    }
+      
+    if (v.subSum != 9 && v.subSum != 0) {
       o('#a').html(v.subSum +' = <span class="r">'+ v.result +'</span>');
-      if (v.result >= 18) {
-        var b = digitalRoot(v.result);
-        o('#b').html(b.subSum +' = <span class="r">'+ b.result +'</span>');
-        if (b.result >= 18) {
-          var c =  digitalRoot(b.result);
-          o('#c').html(c.subSum +' = <span class="r">'+ c.result +'</span>');
-        } else {
-          o('#c').html('');
-        }
+    } else {
+      o('#a, #b, #c').html('');
+    }
+
+    if (v.result >= 18) {
+      var b = digitalRoot(v.result);
+      o('#b').html(b.subSum +' = <span class="r">'+ b.result +'</span>');
+      if (b.result >= 18) {
+        var c =  digitalRoot(b.result);
+        o('#c').html(c.subSum +' = <span class="r">'+ c.result +'</span>');
       } else {
-        o('#b').html('');
+        o('#c').html('');
       }
     } else {
-      o('#result, #a, #b, #c').html('');
+      o('#b').html('');
     }
+
   });  
 });
 
